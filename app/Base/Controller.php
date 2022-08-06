@@ -2,5 +2,5 @@
 namespace App\Base;
 
 class Controller {
-    
+   
 }
