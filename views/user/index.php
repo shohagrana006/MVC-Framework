@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>User list</h1>
-    <table>
+    <table border="1px">
         <thead>
             <tr>
                 <th>Serial No.</th>
