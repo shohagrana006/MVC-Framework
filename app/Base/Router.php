@@ -1,28 +1,51 @@
 <?php 
 
 namespace App\Base;
+
 use Pecee\SimpleRouter\SimpleRouter;
-use Closure;
-use Exception;
-use Pecee\Exceptions\InvalidArgumentException;
-use Pecee\Http\Middleware\BaseCsrfVerifier;
 use Pecee\Http\Request;
-use Pecee\Http\Response;
-use Pecee\Http\Url;
-use Pecee\SimpleRouter\ClassLoader\IClassLoader;
-use Pecee\SimpleRouter\Exceptions\HttpException;
-use Pecee\SimpleRouter\Handlers\CallbackExceptionHandler;
-use Pecee\SimpleRouter\Handlers\IEventHandler;
-use Pecee\SimpleRouter\Route\IGroupRoute;
-use Pecee\SimpleRouter\Route\ILoadableRoute;
-use Pecee\SimpleRouter\Route\IPartialGroupRoute;
 use Pecee\SimpleRouter\Route\IRoute;
-use Pecee\SimpleRouter\Route\RouteController;
-use Pecee\SimpleRouter\Route\RouteGroup;
-use Pecee\SimpleRouter\Route\RoutePartialGroup;
-use Pecee\SimpleRouter\Route\RouteResource;
-use Pecee\SimpleRouter\Route\RouteUrl;
+
 
 class Router extends SimpleRouter{
     
+    public static function get(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_GET], $url, $callback, $settings);
+    }
+
+   
+    public static function post(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_POST], $url, $callback, $settings);
+    }
+
+    public static function put(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_PUT], $url, $callback, $settings);
+    }
+
+   
+    public static function patch(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_PATCH], $url, $callback, $settings);
+    }
+
+   
+    public static function options(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_OPTIONS], $url, $callback, $settings);
+    }
+
+    
+    public static function delete(string $url, $callback, array $settings = null): IRoute
+    {
+        $url = BASE_DIR.$url;
+        return static::match([Request::REQUEST_TYPE_DELETE], $url, $callback, $settings);
+    }
 }

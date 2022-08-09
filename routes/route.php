@@ -5,5 +5,5 @@ use App\Controllers\UserController;
 use App\Controllers\WelcomeController;
 
 
-Router::get('mvc_pattern/',[WelcomeController::class, 'hello']);
-Router::get('mvc_pattern/users',[UserController::class, 'index']);
+Router::get('/',[WelcomeController::class, 'hello']);
+Router::get('/users',[UserController::class, 'index']);

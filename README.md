@@ -3,3 +3,4 @@
 
 ## packages:
 - `simple php router`
+- `vlucas/phpdotenv`
